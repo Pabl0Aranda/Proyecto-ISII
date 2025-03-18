@@ -39,7 +39,7 @@ Este sistema ha sido diseñado utilizando los siguientes patrones de diseño:
 
 ### 🔹 Requisitos Previos  
 1. Tener **Java 17+** instalado.  
-2. Instalar **MySQL** o utilizar SQLite como base de datos.  
+2. Instalar **MySQL** como base de datos.  
 3. Clonar el repositorio:  
 
    ```sh
