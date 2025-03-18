@@ -29,9 +29,9 @@ Este sistema ha sido diseñado utilizando los siguientes patrones de diseño:
 
 ## ⚙️ Tecnologías Utilizadas  
 - **Lenguaje:** Java  
-- **Base de Datos:** MySQL / SQLite  
-- **Interfaz Gráfica:** JavaFX (opcional)  
-- **Herramientas:** IntelliJ IDEA, Git, GitHub  
+- **Base de Datos:** MySQL 
+- **Interfaz Gráfica:** Java Swing (opcional)  
+- **Herramientas:** Netbeans, Git, GitHub  
 
 ---
 
