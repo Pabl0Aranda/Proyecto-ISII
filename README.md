@@ -6,7 +6,6 @@ El **Sistema de Gestión de Biblioteca** es una aplicación diseñada para facil
 - 🏷️ **Reserva y devolución** de libros.  
 - 👤 **Gestión de usuarios** con distintos roles (estudiantes, profesores, investigadores).  
 - 🔔 **Notificaciones** cuando un libro reservado esté disponible.  
-- 🛠️ **Integración con bases de datos externas**.  
 
 El proyecto está diseñado siguiendo **principios SOLID** y patrones de diseño para garantizar un código modular, reutilizable y escalable.  
 
