@@ -14,22 +14,19 @@ El proyecto está diseñado siguiendo **principios SOLID** y patrones de diseño
 ## 🏗️ Patrones de Diseño Implementados  
 Este sistema ha sido diseñado utilizando los siguientes patrones de diseño:  
 
-- **Singleton** → Control de acceso único al gestor de base de datos.  
-- **Factory Method** → Creación flexible de libros físicos y electrónicos.  
-- **Abstract Factory** → Generación de distintos tipos de usuarios.  
+- **Singleton** → Control de instanciación única de nuestra clase sistema.  
+- **Factory Method** → Creación flexible de distintos tipos de usuarios.
 - **Builder** → Construcción de objetos de libros con múltiples atributos opcionales.  
-- **Prototype** → Clonación rápida de libros.  
-- **Adapter** → Integración con bases de datos externas.  
+- **Prototype** → Clonación rápida de libros.    
 - **Decorator** → Adición dinámica de características a los libros.  
-- **Observer** → Notificación automática a usuarios sobre disponibilidad de libros.  
-- **Strategy** → Implementación de múltiples algoritmos de búsqueda.  
+- **Observer** → Notificación automática a usuarios específicos sobre disponibilidad de libros.  
+- **Strategy** → Implementación de múltiples algoritmos de cálculo de tiempo y búsquedas.  
 - **Command** → Gestión de reservas y devoluciones con soporte de deshacer/rehacer.  
 
 ---
 
 ## ⚙️ Tecnologías Utilizadas  
 - **Lenguaje:** Java  
-- **Base de Datos:** MySQL 
 - **Interfaz Gráfica:** Java Swing (opcional)  
 - **Herramientas:** Netbeans, Git, GitHub  
 
@@ -39,14 +36,11 @@ Este sistema ha sido diseñado utilizando los siguientes patrones de diseño:
 
 ### 🔹 Requisitos Previos  
 1. Tener **Java 17+** instalado.  
-2. Instalar **MySQL** como base de datos.  
-3. Clonar el repositorio:  
+2. Clonar el repositorio:  
 
    ```sh
    git clone https://github.com/tuusuario/Sistema-Gestion-Biblioteca.git
    cd Sistema-Gestion-Biblioteca
-
-4. Configurar la base de datos en el archivo config.properties
 
 ### 🔹 Ejecución
 Para ejecutar el sistema, usa el siguiente comando en el terminal:
