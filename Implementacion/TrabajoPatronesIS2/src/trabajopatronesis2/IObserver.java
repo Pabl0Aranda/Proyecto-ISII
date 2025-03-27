@@ -8,8 +8,8 @@ package trabajopatronesis2;
  *
  * @author 34651
  */
-public interface IObserver {
-    
+
+public interface IObserver 
+{
     void update();
-    
 }

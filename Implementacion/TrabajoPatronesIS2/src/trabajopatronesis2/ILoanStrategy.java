@@ -6,8 +6,12 @@ package trabajopatronesis2;
 
 /**
  *
- * @author 34651
+ * @author Pablo Aranda Cortés
  */
-public interface ILoanStrategy {
-    
+
+import java.time.LocalDateTime;
+
+public interface ILoanStrategy 
+{
+    LocalDateTime calculateLoanFinishDate (LocalDateTime startDate);
 }

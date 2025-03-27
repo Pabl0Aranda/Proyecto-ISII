@@ -1,13 +1,24 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package trabajopatronesis2;
 
-public class Book implements IBook{
+import java.util.List;
+
+/**
+ *
+ * @author Pablo Aranda Cortés
+ */
+
+public class Book implements IBook, IBookComponent 
+{
 
     private String name;
     private String author; 
     private String genre;
     private String type;
-    private int ISBN;
+    private long ISBN;
     private boolean disponibility;
 
     public Book(String name, String author, String genre, String type, int ISBN, boolean disponibility) {
@@ -40,29 +51,57 @@ public class Book implements IBook{
     }
 
     @Override
-    public int getISBN() {
+    public long getISBN() {
         return this.ISBN;
     }
 
     @Override
-    public void setISBN(int ISBN) {
+    public void setISBN(long ISBN) {
         this.ISBN = ISBN;
     }
 
     @Override
-    public boolean IsAvaleible() {
+    public boolean isAvailable() {
         return this.disponibility;
     }
 
     @Override
-    public void setDisponibility(boolean disponibility) {
+    public void setAvailable(boolean disponibility) {
         this.disponibility = disponibility;
     }
 
-    //poner bonito
     @Override
     public String toString() {
-        return "Book{" + "name=" + name + ", author=" + author + ", genre=" + genre + ", type=" + type + ", ISBN=" + ISBN + ", disponibility=" + disponibility + '}';
+        return "Book{" + "name=" + name 
+                + ", author=" + author 
+                + ", genre=" + genre 
+                + ", type=" + type 
+                + ", ISBN=" + ISBN 
+                + ", disponibility=" + disponibility 
+                + '}';
     }
+
+    @Override
+    public void showDetails() 
+    {
         
+    }
+
+    @Override
+    public List<IBookComponent> getChildren() 
+    {
+        
+    }
+
+    @Override
+    public boolean addChild(IBookComponent child) 
+    {
+        
+    }
+
+    @Override
+    public boolean removeChild(IBookComponent child) 
+    {
+        
+    }
 }
