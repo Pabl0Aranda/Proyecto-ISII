@@ -7,9 +7,7 @@ package trabajopatronesis2;
  *
  * @author Pablo Monda Caña
  */
-public class BookIterator extends Iterator {
-    
-    public BookIterator(ConcreteCollection collection) {
-        super(collection);
-    }
+
+interface IterableCollection {
+    Iterator CreateIterator();
 }
