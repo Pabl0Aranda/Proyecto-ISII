@@ -43,16 +43,8 @@ public interface IBook {
      * @param ISBN Nuevo número ISBN.
      */
     void setISBN(long ISBN);
-
-    /**
-     * Verifica si el libro está disponible.
-     * @return `true` si está disponible, `false` en caso contrario.
-     */
-    boolean isAvailable();
-
-    /**
-     * Establece la disponibilidad del libro.
-     * @param available Estado de disponibilidad (`true` para disponible, `false` para no disponible).
-     */
-    void setAvailable(boolean available);
+    
+    void setState(IBookState newState);
+    
+    IBookState getState ();
 }

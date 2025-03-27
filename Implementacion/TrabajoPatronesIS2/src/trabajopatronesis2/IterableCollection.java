@@ -8,6 +8,6 @@ package trabajopatronesis2;
  * @author Pablo Monda Caña
  */
 
-interface IterableCollection {
+interface IterableCollection <T> {
     Iterator CreateIterator();
 }

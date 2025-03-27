@@ -5,72 +5,84 @@
 
 package trabajopatronesis2;
 
+import java.util.*;
+
 /**
  *
  * @author Pablo Aranda Cortés
  */
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Clase que representa una categoría en la jerarquía de libros.
  * Puede contener libros o subcategorías.
  */
-public class Category implements IBookComponent 
-{
+public class Category {
     private String name;
-    private List<IBookComponent> children;
+    private List<Book> books = new ArrayList<>();
+    private List<Category> subcategories = new ArrayList<>(); // Lista de subcategorías
 
-    /**
-     * Constructor para inicializar una categoría con un nombre.
-     * @param name Nombre de la categoría.
-     */
-    public Category(String name) 
-    {
+    public Category(String name) {
         this.name = name;
-        this.children = new ArrayList<>();
-    }
-
-    @Override
-    public void showDetails() 
-    {
-        System.out.println("Categoría: " + name);
-        for (IBookComponent child : children) 
-        {
-            child.showDetails();
-        }
-    }
-
-    @Override
-    public List<IBookComponent> getChildren() 
-    {
-        return children;
-    }
-
-    @Override
-    public boolean addChild(IBookComponent child) 
-    {
-        if (!children.contains(child)) {
-            return children.add(child);
-        }
-        return false; // No permite duplicados
-    }
-
-    @Override
-    public boolean removeChild(IBookComponent child) 
-    {
-        return children.remove(child);
     }
 
     /**
-     * Obtiene el nombre de la categoría.
-     * @return Nombre de la categoría.
+     * Añade una subcategoría si no existe previamente.
+     * @param categoryName Nombre de la subcategoría a añadir.
+     * @return true si se añadió, false si ya existe.
      */
+    public boolean addCategory(String categoryName) 
+    {
+        if (categoryName == null || categoryName.trim().isEmpty()) 
+        {
+            return false;
+        }
+        
+        // Verificar si la subcategoría ya existe
+        for (Category subcategory : subcategories) 
+        {
+            if (subcategory.getName().equalsIgnoreCase(categoryName.trim())) 
+            {
+                return false;
+            }
+        }
+        
+        // Crear y añadir la nueva subcategoría
+        subcategories.add(new Category(categoryName.trim()));
+        return true;
+    }
+
+    /**
+     * Elimina una subcategoría por nombre.
+     * @param categoryName Nombre de la subcategoría a eliminar.
+     * @return true si se eliminó, false si no existe.
+     */
+    public boolean removeCategory(String categoryName) 
+    {
+        if (categoryName == null || categoryName.trim().isEmpty()) 
+        {
+            return false;
+        }
+        
+        // Buscar y eliminar la subcategoría
+        return subcategories.removeIf(subcategory -> 
+            subcategory.getName().equalsIgnoreCase(categoryName.trim())
+        );
+    }
+
+    // Getters y Setters
     public String getName() 
     {
         return name;
     }
-}
 
+    public List<Book> getBooks() 
+    {
+        return books;
+    }
+
+    public List<Category> getSubcategories() 
+    {
+        return subcategories;
+    }
+}

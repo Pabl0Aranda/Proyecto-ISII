@@ -11,5 +11,5 @@ package trabajopatronesis2;
 
 public interface IObserver 
 {
-    void update();
+    void update(Book book, String message);
 }

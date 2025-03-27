@@ -4,32 +4,30 @@
  */
 package trabajopatronesis2;
 
-import java.util.List;
+import java.util.*;
 
 /**
  *
  * @author Pablo Aranda Cortés
  */
+public class Book implements IBook, ISubject {
 
-public class Book implements IBook, IBookComponent 
-{
-
+    private List<IObserver> observers = new ArrayList<>();
     private String name;
-    private String author; 
+    private String author;
     private String genre;
     private String type;
     private long ISBN;
-    private boolean disponibility;
+    private IBookState currentState;
 
-    public Book(String name, String author, String genre, String type, int ISBN, boolean disponibility) {
+    public Book(String name, String author, String genre, String type, int ISBN) {
         this.name = name;
         this.author = author;
         this.genre = genre;
         this.type = type;
         this.ISBN = ISBN;
-        this.disponibility = disponibility;
     }
-    
+
     @Override
     public String getName() {
         return this.name;
@@ -40,6 +38,14 @@ public class Book implements IBook, IBookComponent
         this.name = name;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public String getGenre() {
         return this.genre;
@@ -48,6 +54,14 @@ public class Book implements IBook, IBookComponent
     @Override
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
@@ -61,47 +75,54 @@ public class Book implements IBook, IBookComponent
     }
 
     @Override
-    public boolean isAvailable() {
-        return this.disponibility;
+    public IBookState getState() {
+        return currentState;
     }
 
     @Override
-    public void setAvailable(boolean disponibility) {
-        this.disponibility = disponibility;
+    public void setState(IBookState newState) {
+        this.currentState = newState;
     }
 
     @Override
     public String toString() {
-        return "Book{" + "name=" + name 
-                + ", author=" + author 
-                + ", genre=" + genre 
-                + ", type=" + type 
-                + ", ISBN=" + ISBN 
-                + ", disponibility=" + disponibility 
+        return "Book{" + "name=" + name
+                + ", author=" + author
+                + ", genre=" + genre
+                + ", type=" + type
+                + ", ISBN=" + ISBN
                 + '}';
     }
 
+    // Métodos de ISubject
     @Override
-    public void showDetails() 
-    {
-        
+    public void registerObserver(IObserver observer) {
+        observers.add(observer);
     }
 
     @Override
-    public List<IBookComponent> getChildren() 
-    {
-        
+    public void removeObserver(IObserver observer) {
+        observers.remove(observer);
     }
 
     @Override
-    public boolean addChild(IBookComponent child) 
-    {
-        
+    public void notifyObservers(String message) {
+        for (IObserver observer : observers) {
+            observer.update(this, message); // Notificar con el libro y un mensaje
+        }
     }
 
-    @Override
-    public boolean removeChild(IBookComponent child) 
-    {
-        
+    public void markAsDamaged() {
+        // 1. Cambiar estado a DamagedState
+        this.currentState = new DamagedState();
+
+        // 2. Registrar daño en el sistema (Singleton)
+        LibrarySystem.getInstance().logDamage(this, "Daño reportado");
+
+        // 3. Notificar a observadores (Observer pattern)
+        notifyObservers("Libro dañado: " + this.getName());
+
+        // 4. Opcional: quitar de préstamos activos
+        LibrarySystem.getInstance().removeLoanFromSystem(this);
     }
 }

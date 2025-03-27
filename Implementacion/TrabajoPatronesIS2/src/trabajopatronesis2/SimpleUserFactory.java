@@ -6,8 +6,14 @@ package trabajopatronesis2;
 
 /**
  *
- * @author 34651
+ * @author pablo
  */
-public class LibrarySistem {
+public class SimpleUserFactory 
+{
+    private String UserType;
+    public User createUser (String UserType)
+    {
+        return null;
+    }
     
 }

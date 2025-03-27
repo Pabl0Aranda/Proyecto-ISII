@@ -9,7 +9,7 @@ package trabajopatronesis2;
  * @author Pablo Monda Caña
  */
 
-public class Iterator implements IIterator{
+public class Iterator <T> implements IIterator{
     
     private ConcreteCollection collection;
     private boolean iterationState;
