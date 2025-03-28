@@ -6,7 +6,7 @@ package trabajopatronesis2;
 
 /**
  *
- * @author pablo
+ * @author Pablo Aranda Cortés
  */
 public interface IBookState 
 {
