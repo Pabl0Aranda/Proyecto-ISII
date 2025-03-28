@@ -1,6 +1,6 @@
 # Sistema de Gestión Bibliotecaria 📚
 
-Un sistema modular para gestionar bibliotecas, implementando patrones de diseño para garantizar escalabilidad, mantenibilidad y flexibilidad. Desarrollado en Java/Kotlin/C# (según preferencia).
+Un sistema modular para gestionar bibliotecas, implementando patrones de diseño para garantizar escalabilidad, mantenibilidad y flexibilidad. Desarrollado en Java.
 
 ---
 
