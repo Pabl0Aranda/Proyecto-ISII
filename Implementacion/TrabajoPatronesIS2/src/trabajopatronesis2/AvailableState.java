@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author pablo
+ * @author Pablo Aranda Cortés 
  */
 public class AvailableState implements IBookState 
 {
