@@ -8,152 +8,124 @@ import java.util.*;
 
 /**
  *
- * @author 34651
+ * @author Pablo
  */
 public class LibrarySystem {
 
-    private static volatile LibrarySystem instance;
-
-    // Listas para gestión del sistema
     private ArrayList<SimpleUserFactory> users;
     private ArrayList<Book> books;
     private Queue<Loan> loans;
+    private static LibrarySystem instance;
 
-    // Constructor privado para evitar instanciación externa
+    // Constructor privado para Singleton
     private LibrarySystem() {
         this.users = new ArrayList<>();
         this.books = new ArrayList<>();
         this.loans = new LinkedList<>();
     }
 
-    // Método Singleton con doble verificación para thread-safe
+    // Método Singleton
     public static LibrarySystem getInstance() {
+        if (instance == null) {
+            instance = new LibrarySystem();
+        }
         return instance;
     }
 
-    public String showUsers() {
-        StringBuilder sb = new StringBuilder();
-        Iterator<SimpleUserFactory> iterator = users.iterator();
-        while (iterator.hasNext()) {
-            User user = iterator.next().createUser();
-            sb.append("Usuario: ").append(user.getName())
-                    .append(", DNI: ").append(user.getDNI())
-                    .append(user.getEmail())
-                    .append("\n");
-        }
-        return sb.toString();
+    // Métodos para mostrar información
+    public String showUsers(ArrayList<SimpleUserFactory> users) {
+        return users.toString();
     }
 
-    public String showBooks() {
-        StringBuilder sb = new StringBuilder();
-        Iterator<Book> iterator = books.iterator();
-        while (iterator.hasNext()) {
-            Book book = iterator.next();
-            sb.append("Libro: ").append(book.getName())
-                    .append(", Autor: ").append(book.getAuthor())
-                    .append(", Género: ").append(book.getGenre())
-                    .append(", Tipo: ").append(book.getType())
-                    .append(", Estado: ").append(book.getState())
-                    .append(", ISBN: ").append(book.getISBN())
-                    .append("\n");
-        }
-        return sb.toString();
+    public String showBooks(ArrayList<Book> books) {
+        return books.toString();
     }
 
-    public String showLoans() {
-        StringBuilder sb = new StringBuilder();
-        Iterator<Loan> iterator = loans.iterator();
-        while (iterator.hasNext()) {
-            Loan loan = iterator.next();
-            sb.append("Préstamo: ").append(loan.getBook().getName())
-                    .append(" - Usuario: ").append(loan.getUser().getName())
-                    .append(" - Inicio del Préstamo: ").append(loan.getLoanStartDate())
-                    .append(" - Finalización del Préstamo: ").append (loan.getLoanFinishDate())
-                    .append("\n");
-        }
-        return sb.toString();
+    public String showLoans(Queue<Loan> loans) {
+        return loans.toString();
     }
 
-    public boolean addUserToSystem(String UserType) {
-        Iterator <SimpleUserFactory> iterator = users.iterator();
-        while (iterator.hasNext()) {
-            if (iterator.getNext().createUser().getDNI().equals(user.getDNI())) {
-                return false;
-            }
-        }
-        users.add(new SimpleUserFactory(UserType));
-        return true;
+    // Métodos de gestión de usuarios
+    public boolean addUserToSystem(SimpleUserFactory user) {
+        return users.add(user);
     }
 
-    public boolean removeUserFromSystem(User user) {
-        Iterator<SimpleUserFactory> iterator = users.iterator();
-        while (iterator.hasNext()) {
-            if (iterator.getNext().createUser().getDNI().equals(user.getDNI())) {
-                iterator.remove();
-                return true;
-            }
-        }
-        return false;
+    public boolean removeUserFromSystem(SimpleUserFactory user) {
+        return users.remove(user);
     }
 
+    // Métodos de gestión de libros
     public boolean addBookToSystem(Book book) {
-        Iterator<Book> iterator = books.iterator();
-        while (iterator.hasNext()) {
-            if (iterator.next().getISBN() == book.getISBN()) {
-                return false;
-            }
-        }
-        books.add(book);
-        return true;
+        return books.add(book);
     }
 
     public boolean removeBookFromSystem(Book book) {
-        Iterator<Book> iterator = books.iterator();
-        while (iterator.hasNext()) {
-            if (iterator.next().getISBN() == book.getISBN()) {
-                iterator.remove();
-                return true;
-            }
-        }
-        return false;
+        return books.remove(book);
     }
 
+    // Métodos de gestión de préstamos
     public boolean addLoanToSystem(Loan loan) {
-        if (!loans.contains(loan)) {
-            loans.add(loan);
-            return true;
-        }
-        return false;
+        return loans.add(loan);
     }
 
-    public void removeLoanFromSystem(Book book) {
-        Iterator <Loan> iterator = loans.iterator();
-        while (iterator.hasNext()) {
-            Loan loan = iterator.next();
-            if (loan.getBook().equals(book)) {
-                iterator.remove();
-                break;
-            }
-        }
+    public boolean removeLoanFromSystem(Loan loan) {
+        return loans.remove(loan);
     }
 
-    public void completeRepair(Book book) {
-        book.setState(new AvailableState());
+    // Getters para las listas (no especificados en el diagrama pero útiles)
+    public ArrayList<SimpleUserFactory> getUsers() {
+        return users;
     }
 
-    public void logDamage(Book book, String damageType) {
-        book.markAsDamaged();
-        System.out.println("Daño registrado: " + damageType + " en " + book.getName());
+    public ArrayList<Book> getBooks() {
+        return books;
     }
 
-    public void cancelReservation(Book book, User user) {
-        if (book.getState() instanceof ReservedState) {
+    public Queue<Loan> getLoans() {
+        return loans;
+    }
+    
+    void cancelReservation(Book book, User reservedUser) {
+    IBookState currentState = book.getState();
+    if (currentState instanceof ReservedState) {
+        ReservedState reservedState = (ReservedState) currentState;
+        if (reservedState.getReservedUser().equals(reservedUser)) {
             book.setState(new AvailableState());
+        } else {
+            throw new IllegalStateException("El usuario no coincide con la reserva");
         }
+    } else {
+        throw new IllegalStateException("El libro no está en estado reservado");
     }
+}
 
-    public Object logDamagedReturn(Book book) {
-        return "Libro devuelto dañado: " + book.getName();
+void logDamagedReturn(Book book) {
+    IBookState currentState = book.getState();
+    if (currentState instanceof BorrowedState) {
+        currentState.returnBook(book, null);
+        book.setState(new DamagedState());
+    } else {
+        throw new IllegalStateException("El libro debe estar prestado para marcar daño");
     }
+}
 
+void completeRepair(Book book) {
+    IBookState currentState = book.getState();
+    if (currentState instanceof DamagedState) {
+        ((DamagedState) currentState).repairBook(book);
+        book.setState(new AvailableState());
+    } else {
+        throw new IllegalStateException("El libro no está dañado");
+    }
+}
+
+void logDamage(Book book, String daño_reiterado) {
+    IBookState currentState = book.getState();
+    if (currentState instanceof DamagedState) {
+        ((DamagedState) currentState).markAsDamaged(book);
+    }
+    book.setState(new DamagedState());
+    // Lógica adicional para registrar daño reiterado (ej: en historial del libro/usuario)
+    System.out.println("Daño registrado: " + daño_reiterado);
+}
 }

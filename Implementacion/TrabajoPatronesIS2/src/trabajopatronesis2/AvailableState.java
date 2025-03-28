@@ -26,7 +26,7 @@ public class AvailableState implements IBookState
     }
 
     @Override
-    public void returnBook(Book book) 
+    public void returnBook(Book book, Loan loan) 
     {
         // No aplicable: ¡un libro disponible no puede devolverse!
         throw new IllegalStateException("El libro ya está disponible");

@@ -20,12 +20,13 @@ public class Book implements IBook, ISubject {
     private long ISBN;
     private IBookState currentState;
 
-    public Book(String name, String author, String genre, String type, int ISBN) {
+    public Book(String name, String author, String genre, String type, int ISBN, boolean disponibility) {
         this.name = name;
         this.author = author;
         this.genre = genre;
         this.type = type;
         this.ISBN = ISBN;
+        this.currentState = disponibility ? new AvailableState() : new BorrowedState(null);
     }
 
     @Override
@@ -121,8 +122,5 @@ public class Book implements IBook, ISubject {
 
         // 3. Notificar a observadores (Observer pattern)
         notifyObservers("Libro dañado: " + this.getName());
-
-        // 4. Opcional: quitar de préstamos activos
-        LibrarySystem.getInstance().removeLoanFromSystem(this);
     }
 }

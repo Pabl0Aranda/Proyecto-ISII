@@ -23,12 +23,12 @@ public class BorrowedState implements IBookState {
     }
 
     @Override
-    public void returnBook(Book book) {
+    public void returnBook(Book book, Loan loan) {
         // 1. Cambiar estado a AvailableState
         book.setState(new AvailableState());
 
         // 2. Eliminar préstamo del sistema (Singleton)
-        LibrarySystem.getInstance().removeLoanFromSystem(book);
+        LibrarySystem.getInstance().removeLoanFromSystem(loan);
 
         // 3. Notificar disponibilidad (Observer)
         book.notifyObservers("Libro disponible: " + book.getName());

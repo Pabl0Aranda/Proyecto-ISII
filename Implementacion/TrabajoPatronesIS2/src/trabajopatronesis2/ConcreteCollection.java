@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class ConcreteCollection implements IterableCollection {
+
+    public ConcreteCollection(ArrayList<Book> books) {
+    }
     private List<Object> items = new ArrayList<>();
 
     @Override

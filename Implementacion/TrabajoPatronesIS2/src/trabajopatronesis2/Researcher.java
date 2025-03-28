@@ -8,28 +8,27 @@ package trabajopatronesis2;
  *
  * @author 34651
  */
-public class Researcher extends User{
+public class Researcher extends User implements IObserver {
     
-    private String ambitoInvestigacion;
+    private String researchArea;
 
-    public Researcher(String name, String DNI, String email, String ambitoInvestigacion) {
+    public Researcher(String name, String DNI, String email, String researchArea) {
         super(name, DNI, email);
-        this.ambitoInvestigacion = ambitoInvestigacion;
+        this.researchArea = researchArea;
     }
 
     public String getAmbitoInvestigacion() {
-        return ambitoInvestigacion;
+        return researchArea;
     }
 
-    public void setAmbitoInvestigacion(String ambitoInvestigacion) {
-        this.ambitoInvestigacion = ambitoInvestigacion;
+    public void setAmbitoInvestigacion(String researchArea) {
+        this.researchArea = researchArea;
     }
 
     //PC: poner bonito y añadir el super()
-    
+
     @Override
-    public String toString() {
-        return "Researcher{" + "ambitoInvestigacion=" + ambitoInvestigacion + '}';
+    public void update(Book book, String message) {
+        System.out.println("[NOTIFICACIÓN] " + getName() + ": " + message);
     }
-   
 }

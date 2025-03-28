@@ -10,26 +10,27 @@ package trabajopatronesis2;
  */
 public class Professor extends User{
     
-    private String departamento;
+    private String department;
 
-    public Professor(String name, String DNI, String email, String departamento) {
+    public Professor(String name, String DNI, String email, String department) {
         super(name, DNI, email);
-        this.departamento = departamento;
+        this.department = department;
     }
     
-    public void setDepartamento(String departamento){
-        this.departamento = departamento;
+    // Getters y setters para department
+    public String getDepartment() {
+        return department;
     }
-    
-    public String getDepartamento(){
-        return this.departamento;
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     //PC: poner bonito y añadir el super()
     
     @Override
     public String toString() {
-        return "Professor{" + "departamento=" + departamento + '}';
+        return "Professor{" + "departamento=" + department + '}';
     }
     
     

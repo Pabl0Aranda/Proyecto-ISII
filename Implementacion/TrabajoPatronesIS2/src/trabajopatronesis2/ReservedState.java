@@ -34,7 +34,7 @@ public class ReservedState implements IBookState {
     }
 
     @Override
-    public void returnBook(Book book) {
+    public void returnBook(Book book, Loan loan) {
         // No aplicable: un libro reservado no está prestado
         throw new IllegalStateException("Acción inválida: no se puede devolver un libro reservado");
     }

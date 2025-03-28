@@ -8,12 +8,21 @@ package trabajopatronesis2;
  *
  * @author pablo
  */
-public class SimpleUserFactory 
-{
-    private String UserType;
-    public User createUser (String UserType)
-    {
-        return null;
+
+public class SimpleUserFactory {
+    public User createUser(String userType) {
+        if (userType == null) {
+            throw new IllegalArgumentException("Tipo de usuario no puede ser null");
+        }
+        switch (userType.toLowerCase()) {
+            case "student":
+                return new Student("", "", "", "");
+            case "professor":
+                return new Professor("", "", "", "");
+            case "researcher":
+                return new Researcher("", "", "", "");
+            default:
+                throw new IllegalArgumentException("Tipo de usuario no válido: " + userType);
+        }
     }
-    
 }

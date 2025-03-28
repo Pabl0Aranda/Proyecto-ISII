@@ -16,7 +16,7 @@ public class DamagedState implements IBookState {
     }
 
     @Override
-    public void returnBook(Book book) {
+    public void returnBook(Book book, Loan loan) {
         // Permitir devolución para cambiar estado (ej: tras reparación)
         // Opcional: registrar devolución de libro dañado
         LibrarySystem.getInstance().logDamagedReturn(book);

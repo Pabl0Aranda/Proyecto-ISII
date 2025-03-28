@@ -8,31 +8,21 @@ package trabajopatronesis2;
  *
  * @author 34651
  */
-public class Student extends User{
-    
-    private String facultad;
 
-    public Student(String name, String DNI, String email, String facultad) {
-        super(name, DNI, email);
-        this.facultad = facultad;
+public class Student extends User {
+    private String faculty;
+
+    public Student(String name, String DNI, String email, String faculty) {
+        super(name, DNI, email); // Llama al constructor de User
+        this.faculty = faculty;
     }
 
-    public String getFacultad() {
-        return facultad;
+    // Getters y setters para faculty
+    public String getFaculty() {
+        return faculty;
     }
 
-    public void setFacultad(String facultad) {
-        this.facultad = facultad;
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
     }
-
-    //PC: poner bonito y añadir el super()
-    
-    @Override
-    public String toString() {
-        return "Student{" + "facultad=" + facultad + '}';
-    }
-    
-    
-    
-    
 }
