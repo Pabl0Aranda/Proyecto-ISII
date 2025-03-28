@@ -39,8 +39,8 @@ Consulta el archivo [Diagrama de Clases.pdf](Diagrama%20de%20Clases.pdf) para en
 
 ## Configuración y Uso 🚀  
 1. **Requisitos**:  
-   - JDK 11+ (si es Java) / .NET Core 3.1+ (si es C#).  
-   - IDE de tu preferencia (Ej: IntelliJ, Visual Studio).  
+   - JDK 11+.  
+   - IDE de tu preferencia (Ej: IntelliJ, Visual Studio, Netbeans...).  
 
 2. **Ejecución**:  
 ```bash
