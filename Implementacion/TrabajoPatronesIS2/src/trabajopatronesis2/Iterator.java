@@ -25,14 +25,17 @@ public class Iterator <T> implements IIterator{
         this.collection = collection;
     }
 
+    @Override
     public boolean isIterationState() {
         return iterationState;
     }
 
+    @Override
     public void setIterationState(boolean iterationState) {
         this.iterationState = iterationState;
     }
 
+    @Override
     public int getActualPosition() {
         return actualPosition;
     }
@@ -45,6 +48,7 @@ public class Iterator <T> implements IIterator{
         this.collection = collection;
     }
     
+    @Override
     public void setActualPosition(int actualPosition) {
         this.actualPosition = actualPosition;
     }    
@@ -65,7 +69,7 @@ public class Iterator <T> implements IIterator{
         return null;
     }
 
-     @Override
+    @Override
     public boolean hasNext() {
         return actualPosition < collection.size();
     }

@@ -8,9 +8,8 @@ package trabajopatronesis2;
  *
  * @author 34651
  */
-public interface ISubject {
-   
-    
+public interface ISubject 
+{
     void registerObserver(IObserver o);
     void removeObserver(IObserver o);
     void notifyObservers(String message);
