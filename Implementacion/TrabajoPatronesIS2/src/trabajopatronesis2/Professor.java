@@ -17,7 +17,6 @@ public class Professor extends User{
         this.department = department;
     }
     
-    // Getters y setters para department
     public String getDepartment() {
         return department;
     }
@@ -25,8 +24,6 @@ public class Professor extends User{
     public void setDepartment(String department) {
         this.department = department;
     }
-
-    //PC: poner bonito y añadir el super()
     
     @Override
     public String toString() {
