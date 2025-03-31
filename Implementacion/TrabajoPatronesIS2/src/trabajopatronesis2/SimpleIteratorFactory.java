@@ -4,8 +4,6 @@
  */
 package trabajopatronesis2;
 
-import trabajopatronesis2.BookIterator;
-
 /**
  *
  * @author Pablo Monda Caña
@@ -14,14 +12,16 @@ import trabajopatronesis2.BookIterator;
 public class SimpleIteratorFactory {
     public static Iterator createIterator(String type, ConcreteCollection collection) {
         switch (type.toLowerCase()) {
-            case "book":
+            case "book" -> {
                 return new BookIterator(collection);
-            case "user":
+            }
+            case "user" -> {
                 return new UserIterator(collection);
-            case "loan":
+            }
+            case "loan" -> {
                 return new LoanIterator(collection);
-            default:
-                throw new IllegalArgumentException("Tipo de iterador no soportado: " + type);
+            }
+            default -> throw new IllegalArgumentException("Tipo de iterador no soportado: " + type);
         }
     }
 }
