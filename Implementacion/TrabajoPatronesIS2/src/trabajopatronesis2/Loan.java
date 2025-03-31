@@ -12,16 +12,11 @@ public class Loan
     private LocalDateTime loanFinishDate;
 
     public Loan(User user, Book book, LocalDateTime loanStartDate, ILoanStrategy strategy) {
-        //Validar parámetros no nulos
-        if (user == null || book == null || strategy == null) 
-        {
-            throw new IllegalArgumentException ("Usuario, libro o estrategia no pueden ser nulo");
-        }
         this.user = user;
         this.book = book;
         this.loanStartDate = loanStartDate;
         this.strategy = strategy;
-        this.loanFinishDate = strategy.calculateLoanFinishDate(loanStartDate);
+        this.loanFinishDate = loanStartDate.plusDays(10);
     }
 
     public User getUser() {

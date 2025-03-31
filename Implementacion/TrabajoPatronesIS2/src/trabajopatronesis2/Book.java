@@ -87,12 +87,13 @@ public class Book implements IBook, ISubject {
 
     @Override
     public String toString() {
-        return "Book{" + "name=" + name
-                + ", author=" + author
-                + ", genre=" + genre
-                + ", type=" + type
-                + ", ISBN=" + ISBN
-                + '}';
+        return "\n\nBook" 
+                + "\n name: " + name
+                + "\n author: " + author
+                + "\n genre: " + genre
+                + "\n type: " + type
+                + "\n ISBN: " + ISBN
+                ;
     }
 
     // Métodos de ISubject
@@ -110,6 +111,7 @@ public class Book implements IBook, ISubject {
     public void notifyObservers(String message) {
         for (IObserver observer : observers) {
             observer.update(this, message); // Notificar con el libro y un mensaje
+            System.out.println("Notificación enviada.");
         }
     }
 

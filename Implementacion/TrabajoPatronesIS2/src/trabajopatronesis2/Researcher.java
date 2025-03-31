@@ -25,8 +25,6 @@ public class Researcher extends User implements IObserver {
         this.researchArea = researchArea;
     }
 
-    //PC: poner bonito y añadir el super()
-
     @Override
     public void update(Book book, String message) {
         System.out.println("[NOTIFICACIÓN] " + getName() + ": " + message);

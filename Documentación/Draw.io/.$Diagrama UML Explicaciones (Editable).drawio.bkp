@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2305" dy="2574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="5286" dy="4309" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1920" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -181,14 +181,6 @@
         </mxCell>
         <mxCell id="q5WZ01ZFPePv-wJeWz4b-171" value="&amp;nbsp;+ getInstance () : LibrarySystem" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="q5WZ01ZFPePv-wJeWz4b-77" vertex="1">
           <mxGeometry y="200" width="380" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="0Y6TkM5io9jUNv9dup5i-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="q5WZ01ZFPePv-wJeWz4b-77" source="1PzIKq73qgjTOJm5XEhF-63" target="q5WZ01ZFPePv-wJeWz4b-170">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="430" y="245" />
-              <mxPoint x="430" y="67" />
-            </Array>
-          </mxGeometry>
         </mxCell>
         <mxCell id="1PzIKq73qgjTOJm5XEhF-63" value="&amp;nbsp;+ showUsers (users : ArrayList &amp;lt; SimpleUserFactory &amp;gt;) : String" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="q5WZ01ZFPePv-wJeWz4b-77" vertex="1">
           <mxGeometry y="230" width="380" height="30" as="geometry" />
@@ -883,7 +875,7 @@
           <mxGeometry x="1970" y="1070" width="180" height="90" as="geometry" />
         </mxCell>
         <mxCell id="1qEojGfef9XadqZPxh-j-43" value="&lt;b&gt;&amp;nbsp;&lt;u&gt;IIterableCollection:&lt;/u&gt;&amp;nbsp;&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Creador de un iterador específico para el tipo de colección a iterar.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1290" y="-305" width="180" height="90" as="geometry" />
+          <mxGeometry x="1260" y="-320" width="180" height="90" as="geometry" />
         </mxCell>
         <mxCell id="1qEojGfef9XadqZPxh-j-89" value="" style="swimlane;startSize=0;strokeColor=#FF66B3;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-850" y="-990" width="780" height="1290" as="geometry" />
@@ -1022,7 +1014,7 @@
         <mxCell id="1qEojGfef9XadqZPxh-j-95" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Patrón State&lt;/h1&gt;&lt;p&gt;Lo usamos para gestionar los estados disponibles de un libro (disponible, prestado, reservado...) de forma encapsulada, evitando condicionales complejos en la clase Book y permitiendo transiciones flexibles entre estados.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Además, al usar este patrón, la implementación de futuros nuevos estados se simplifica.&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;labelBorderColor=#99CCFF;textShadow=1;labelBackgroundColor=none;" parent="1qEojGfef9XadqZPxh-j-89" vertex="1">
           <mxGeometry x="371.5" y="30" width="317" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="vaddoajrFwxalK7caxxJ-4" value="&lt;b&gt;&lt;u&gt;IBookState:&lt;/u&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Interfaz que define todos los métodos base de un estado futuro de un libro.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" parent="1qEojGfef9XadqZPxh-j-89" vertex="1">
+        <mxCell id="vaddoajrFwxalK7caxxJ-4" value="&lt;b&gt;&lt;u&gt;IBookState:&lt;/u&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Interfaz que define todos los métodos base de un estado futuro de un libro.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" vertex="1" parent="1qEojGfef9XadqZPxh-j-89">
           <mxGeometry x="600" y="810" width="180" height="90" as="geometry" />
         </mxCell>
         <mxCell id="1qEojGfef9XadqZPxh-j-111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=none;dashed=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="1qEojGfef9XadqZPxh-j-102" edge="1">
@@ -1076,16 +1068,16 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="vaddoajrFwxalK7caxxJ-0" value="&lt;b&gt;&lt;u&gt;ReservedState:&lt;/u&gt;&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Clase que representa si un libro está reservado y qué persona lo ha reservado.&lt;/div&gt;&lt;div&gt;(Reservado != Prestado)&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="vaddoajrFwxalK7caxxJ-0" value="&lt;b&gt;&lt;u&gt;ReservedState:&lt;/u&gt;&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Clase que representa si un libro está reservado y qué persona lo ha reservado.&lt;/div&gt;&lt;div&gt;(Reservado != Prestado)&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-1020" y="-60" width="180" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="vaddoajrFwxalK7caxxJ-1" value="&lt;b&gt;&lt;u&gt;DamagedState:&lt;/u&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Clase que representa si un libro está dañado o no.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="vaddoajrFwxalK7caxxJ-1" value="&lt;b&gt;&lt;u&gt;DamagedState:&lt;/u&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Clase que representa si un libro está dañado o no.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-1010" y="230" width="180" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="vaddoajrFwxalK7caxxJ-2" value="&lt;b&gt;&lt;u&gt;BorrowedState:&lt;/u&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Clase que representa si un libro está prestado y a quien.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="vaddoajrFwxalK7caxxJ-2" value="&lt;b&gt;&lt;u&gt;BorrowedState:&lt;/u&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;&lt;br&gt;&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Clase que representa si un libro está prestado y a quien.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-1020" y="-380" width="180" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="vaddoajrFwxalK7caxxJ-3" value="&lt;u&gt;&lt;b&gt;AvaibleState:&lt;/b&gt;&lt;/u&gt;&lt;div&gt;&lt;u&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;Representa la clase que determina que un libro está disponible.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="vaddoajrFwxalK7caxxJ-3" value="&lt;u&gt;&lt;b&gt;AvaibleState:&lt;/b&gt;&lt;/u&gt;&lt;div&gt;&lt;u&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/u&gt;&lt;/div&gt;&lt;div&gt;Representa la clase que determina que un libro está disponible.&lt;/div&gt;" style="html=1;dropTarget=0;whiteSpace=wrap;align=left;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="-1020" y="-725" width="180" height="90" as="geometry" />
         </mxCell>
       </root>

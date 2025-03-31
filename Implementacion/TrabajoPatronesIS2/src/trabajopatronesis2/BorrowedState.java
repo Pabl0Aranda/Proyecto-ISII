@@ -19,7 +19,7 @@ public class BorrowedState implements IBookState {
     @Override
     public void borrow(Book book, User user) {
         // No se puede prestar un libro ya prestado
-        throw new IllegalStateException("El libro ya está prestado a " + borrower.getName());
+        System.out.println("El libro ya está prestado a " + borrower.getName());
     }
 
     @Override
@@ -37,7 +37,7 @@ public class BorrowedState implements IBookState {
     @Override
     public void reserve(Book book, User user) {
         // No se puede reservar un libro prestado
-        throw new IllegalStateException("No se puede reservar un libro en préstamo");
+        System.out.println("No se puede reservar un libro en préstamo");
     }
 
     @Override

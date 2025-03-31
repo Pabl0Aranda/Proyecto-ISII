@@ -53,7 +53,10 @@ public class User implements IUser{
     //poner bonito
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", DNI=" + DNI + ", email=" + email + '}';
+        return "User" + 
+                "\n name = " + name 
+                + "\n DNI = " + DNI 
+                + "\n email = " + email;
     }
     
     

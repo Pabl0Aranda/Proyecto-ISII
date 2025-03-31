@@ -84,48 +84,52 @@ public class LibrarySystem {
     public Queue<Loan> getLoans() {
         return loans;
     }
-    
-    void cancelReservation(Book book, User reservedUser) {
-    IBookState currentState = book.getState();
-    if (currentState instanceof ReservedState) {
-        ReservedState reservedState = (ReservedState) currentState;
-        if (reservedState.getReservedUser().equals(reservedUser)) {
+
+    public void cancelReservation(Book book, User reservedUser) {
+        IBookState currentState = book.getState();
+        if (currentState instanceof ReservedState) {
+            ReservedState reservedState = (ReservedState) currentState;
+            if (reservedState.getReservedUser().equals(reservedUser)) {
+                book.setState(new AvailableState());
+            } else {
+                System.out.println("El usuario no coincide con la reserva");
+            }
+        } else {
+            System.out.println("El libro no está en estado reservado");
+        }
+    }
+
+    public void logDamagedReturn(Book book) {
+        IBookState currentState = book.getState();
+        if (currentState instanceof BorrowedState) {
+            currentState.returnBook(book, null);
+            book.setState(new DamagedState());
+        } else {
+            System.out.println("El libro debe estar prestado para marcar daño");
+        }
+    }
+
+    public void completeRepair(Book book) {
+        IBookState currentState = book.getState();
+        if (currentState instanceof DamagedState) {
+            ((DamagedState) currentState).repairBook(book);
             book.setState(new AvailableState());
         } else {
-            throw new IllegalStateException("El usuario no coincide con la reserva");
+            System.out.println("El libro no está dañado");
         }
-    } else {
-        throw new IllegalStateException("El libro no está en estado reservado");
     }
-}
 
-void logDamagedReturn(Book book) {
-    IBookState currentState = book.getState();
-    if (currentState instanceof BorrowedState) {
-        currentState.returnBook(book, null);
+    public void logDamage(Book book, String daño_reiterado) {
+        IBookState currentState = book.getState();
+        if (currentState instanceof DamagedState) {
+            ((DamagedState) currentState).markAsDamaged(book);
+        }
         book.setState(new DamagedState());
-    } else {
-        throw new IllegalStateException("El libro debe estar prestado para marcar daño");
+        // Lógica adicional para registrar daño reiterado (ej: en historial del libro/usuario)
+        System.out.println("Daño registrado: " + daño_reiterado);
     }
-}
 
-void completeRepair(Book book) {
-    IBookState currentState = book.getState();
-    if (currentState instanceof DamagedState) {
-        ((DamagedState) currentState).repairBook(book);
-        book.setState(new AvailableState());
-    } else {
-        throw new IllegalStateException("El libro no está dañado");
+    private static void reserve(User researcher, Book book2) {
+        
     }
-}
-
-void logDamage(Book book, String daño_reiterado) {
-    IBookState currentState = book.getState();
-    if (currentState instanceof DamagedState) {
-        ((DamagedState) currentState).markAsDamaged(book);
-    }
-    book.setState(new DamagedState());
-    // Lógica adicional para registrar daño reiterado (ej: en historial del libro/usuario)
-    System.out.println("Daño registrado: " + daño_reiterado);
-}
 }
