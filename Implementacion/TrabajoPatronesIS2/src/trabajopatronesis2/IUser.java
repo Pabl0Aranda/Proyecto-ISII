@@ -16,5 +16,6 @@ public interface IUser {
     void setDNI(String DNI);
     String getEmail();
     void setEmail(String email);
-    
+     
+            
 }

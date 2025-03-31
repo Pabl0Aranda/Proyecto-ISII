@@ -17,7 +17,6 @@ public class Student extends User {
         this.faculty = faculty;
     }
 
-    // Getters y setters para faculty
     public String getFaculty() {
         return faculty;
     }
