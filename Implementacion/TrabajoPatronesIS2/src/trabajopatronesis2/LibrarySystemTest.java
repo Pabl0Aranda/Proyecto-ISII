@@ -26,17 +26,17 @@ public class LibrarySystemTest {
         // ========== PRUEBA 1: Creación de usuarios ==========
         try {
             student = userFactory.createUser("Student");
-            student.setName("Ana Pérez"); // Ahora student no es null
+            student.setName("Ana Perez"); // Ahora student no es null
             student.setDNI("123456789A");
             student.setEmail("Ana@gmail.com");
 
             professor = userFactory.createUser("Professor");
-            professor.setName("Dr. García");
+            professor.setName("Dr. Garcia");
             professor.setDNI("987654321B");
             professor.setEmail("DRGarcia@gmail.com");
 
             researcher = userFactory.createUser("Researcher");
-            researcher.setName("Investigador López");
+            researcher.setName("Investigador Lopez");
             professor.setDNI("091287346C");
             professor.setEmail("Lopez@gmail.com");
 
@@ -48,16 +48,16 @@ public class LibrarySystemTest {
         }
 
         // ========== PRUEBA 2: Gestión de libros ==========
-        System.out.println("\n=== Añadiendo libros ===");
-        book1 = new Book("Cien años de soledad", "García Márquez", "Novela", "Físico", 123456, true);
-        book2 = new Book("Física Cuántica", "Stephen Hawking", "Ciencia", "E-Book", 789012, true);
+        System.out.println("\n=== Anadiendo libros ===");
+        book1 = new Book("Cien años de soledad", "Garcia Márquez", "Novela", "Fisico", 123456, true);
+        book2 = new Book("Fisica Cuantica", "Stephen Hawking", "Ciencia", "E-Book", 789012, true);
 
         library.addBookToSystem(book1);
         library.addBookToSystem(book2);
         System.out.println("Libros en sistema: " + library.showBooks(library.getBooks()));
 
         // ========== PRUEBA 3: Préstamos con diferentes estrategias ==========
-        System.out.println("\n=== Préstamos con estrategias ===");
+        System.out.println("\n=== Prestamos con estrategias ===");
 
         // Asegurar que los objetos no sean null
         ILoanStrategy standard = new StandardLoanStrategy();
@@ -91,7 +91,7 @@ public class LibrarySystemTest {
         library.logDamagedReturn(book1);
         System.out.println("Estado libro1 dañado: " + book1.getState().getClass().getSimpleName());
         library.completeRepair(book1);
-        System.out.println("Estado después de reparación: " + book1.getState().getClass().getSimpleName());
+        System.out.println("Estado despues de reparación: " + book1.getState().getClass().getSimpleName());
 /*
         // ========== PRUEBA 7: Iteradores ==========
         System.out.println("\n=== Prueba iteradores ===");
